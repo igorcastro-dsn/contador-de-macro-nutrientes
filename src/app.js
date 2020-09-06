@@ -3,6 +3,7 @@ import './menu.js';
 import './calculadora-de-calorias.js';
 import './resultado.js';
 import './macro-nutrientes.js';
+import './rodape.js';
 
 export class App extends LitElement {
 
@@ -64,6 +65,8 @@ export class App extends LitElement {
                     </div>
                 </section>
             </div>
+
+            <wc-rodape></wc-rodape>
         `;
     }
 }

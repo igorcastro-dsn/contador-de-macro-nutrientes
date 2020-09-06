@@ -45,8 +45,9 @@ export class MacroNutrientes extends LitElement {
 
     _caloriasTotais = (e) => {
         this.caloriasTotais = e.detail;
+        console.log(this.caloriasTotais)
         
-        if (this.caloriasTotais === 0) {
+        if (this.caloriasTotais == 0.00) {
             this._inicializarVariaveis();
             return;
         }

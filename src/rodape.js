@@ -1,6 +1,18 @@
-import {LitElement, html} from 'lit-element';
+    import {LitElement, html, css} from 'lit-element';
 
 export class Rodape extends LitElement {
+
+    static get styles() {
+        return css`
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 20%;
+            }
+        `;
+    }
 
     constructor() {
         super();
@@ -8,10 +20,11 @@ export class Rodape extends LitElement {
 
     render() {
         return html`
-            <footer class="footer columns">
-                <div class="content has-text-centered column is-full-width">
-                    <p>
-                    Desenvolvido por <a href="https://github.com/igorcastro-dsn" target="_blank">Igor de Castro</a>.
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+            <footer class="footer has-background-light">
+                <div class="content">
+                    <p class="has-text-centered">
+                        Desenvolvido por <a href="https://github.com/igorcastro-dsn" target="_blank">Igor de Castro</a>.
                     </p>
                 </div>
             </footer>

@@ -72,10 +72,7 @@ export class CalculadoraDeCalorias extends LitElement {
         e.preventDefault();
 
         this._inicializarVariaveis();
-
-        // TODO: Limpar do formulário  
-
-        alert("Ainda não estamos limpando o formulário, desculpe!");
+        this._limparForm();
 
         document.dispatchEvent(
             new CustomEvent('on-tmb-calculada', {
@@ -83,6 +80,17 @@ export class CalculadoraDeCalorias extends LitElement {
                 composed: true,
             })
         );
+    }
+    
+    _limparForm() {
+        const genero = this.shadowRoot.querySelector("input[name=genero]:checked");
+        if (genero) {
+            genero.checked = false
+        }
+        this.shadowRoot.querySelector(".input-idade").value = null;
+        this.shadowRoot.querySelector(".input-peso").value = null;
+        this.shadowRoot.querySelector(".input-altura").value = null;
+        this.shadowRoot.querySelector(".select-nivel-de-atividade").value = 0;
     }
 
     render() {
@@ -92,124 +100,110 @@ export class CalculadoraDeCalorias extends LitElement {
             href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
         />
 
-        <form>
-            <div class="field is-horizontal">
-                <div class="field-label">
-                    <label class="label">Gênero</label>
-                </div>
-                <div class="field-body">
-                    <div class="field is-narrow">
-                        <div class="control">
-                            <label class="radio">
+        <div class="box">
+            <form>
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <div class="field">
+                            <label class="label">Gênero</label>
+                            <div class="control">
+                                <label class="radio">
+                                    <input
+                                        type="radio"
+                                        name="genero"
+                                        value="masculino"
+                                        @click=${this._setGenero}
+                                    />
+                                    Masculino
+                                </label>
+                                <label class="radio">
+                                    <input
+                                        type="radio"
+                                        name="genero"
+                                        value="feminino"
+                                        @click=${this._setGenero}
+                                    />
+                                    Feminino
+                                </label>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="field">
+                            <label class="label">Idade</label>
+                            <div class="control">
                                 <input
-                                    type="radio"
-                                    name="member"
-                                    value="masculino"
-                                    @click=${this._setGenero}
+                                    class="input input-idade"
+                                    type="text"
+                                    placeholder=""
+                                    @input=${this._setIdade}
                                 />
-                                Masculino
-                            </label>
-                            <label class="radio">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-2">
+                        <div class="field">
+                            <label class="label">Peso</label>
+                            <div class="control">
                                 <input
-                                    type="radio"
-                                    name="member"
-                                    value="feminino"
-                                    @click=${this._setGenero}
+                                    class="input input-peso"
+                                    type="text"
+                                    placeholder="kg"
+                                    @input=${this._setPeso}
                                 />
-                                Feminino
-                            </label>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">Idade</label>
-                </div>
-                <div class="field-body">
-                    <div class="field is-2">
-                        <div class="control">
-                            <input
-                                class="input"
-                                type="text"
-                                placeholder=""
-                                @input=${this._setIdade}
-                            />
+                    <div class="column is-2">
+                        <div class="field">
+                            <label class="label">Altura</label>
+                            <div class="control">
+                                <input
+                                    class="input input-altura"
+                                    type="text"
+                                    placeholder="cm"
+                                    @input=${this._setAltura}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">Peso</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <input
-                                class="input"
-                                type="text"
-                                placeholder="kg"
-                                @input=${this._setPeso}
-                            />
+                    <div class="column is-12">
+                        <div class="field">
+                            <label class="label">Nível de atividade</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select class="select-nivel-de-atividade" @change=${this._setNivelDeAtividade}>
+                                        <option value="0">--- Selecionar ---</option>
+                                        <option value="1.2">Sedentário</option>
+                                        <option value="1.375">Exercícios leves (1-2 vezes por semana)</option>
+                                        <option value="1.55">Exercícios moderados (3-5 vezes por semana)</option>
+                                        <option value="1.725">Exercícios pesados (6-7 vezes por semana)</option>
+                                        <option value="1.9">Exercícios muito pesados (2 vezes por dia)</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">Altura</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <input
-                                class="input"
-                                type="text"
-                                placeholder="cm"
-                                @input=${this._setAltura}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">Nível de atividade</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <div class="select">
-                                <select @change=${this._setNivelDeAtividade}>
-                                    <option>--- Selecionar ---</option>
-                                    <option value="1.2">Sedentário</option>
-                                    <option value="1.375">Exercícios leves (1-2 vezes por semana)</option>
-                                    <option value="1.55">Exercícios moderados (3-5 vezes por semana)</option>
-                                    <option value="1.725">Exercícios pesados (6-7 vezes por semana)</option>
-                                    <option value="1.9">Exercícios muito pesados (2 vezes por dia)</option>
-                                </select>
+                    <div class="column is-12">
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-primary" @click=${this._calcularTMB}>
+                                    Calcular
+                                </button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary is-light" @click=${this._limpar}>Limpar</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="field is-grouped">
-                <div class="control">
-                    <button class="button is-primary" @click=${this._calcularTMB}>
-                        Calcular
-                    </button>
-                </div>
-                <div class="control">
-                    <button class="button is-primary is-light" @click=${this._limpar}>Limpar</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
         `;
     }
 }

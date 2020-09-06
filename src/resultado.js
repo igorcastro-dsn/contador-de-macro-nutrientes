@@ -46,7 +46,7 @@ export class Resultado extends LitElement {
     _handleCalorias = (e) => { 
         const tmb = e.detail.tmb;
 
-        if (tmb === 0) {
+        if (tmb === null) {
             this.calorias = 0;
             this.cor = null;
             this._dispararEventoComCalorias();
