@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "serve": "serve build/src/",
+    "serve": "serve dist/",
     "start": "npm run build && npm run serve"
   },
   "keywords": [

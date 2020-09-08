@@ -5,14 +5,14 @@ import copy from 'rollup-plugin-copy';
 
 const copyConfig = {
     targets: [
-      { src: 'src/index.html', dest: 'build/src' },
+      { src: 'src/index.html', dest: 'dist' },
     ],
   };
 
 const config = {
   input: 'src/app.js',
   output: {
-    dir: 'build/src',
+    dir: 'dist',
     format: 'es',
   },
   plugins: [
