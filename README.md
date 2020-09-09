@@ -8,7 +8,7 @@ Projeto para estudo de criação de _web components_ utilizando lit-element e bu
 - Apresentação dos macros nutrientes com suas respectivas quantidades e calorias de acordo com resultado selecionado.
 
 ## Ambientes publicados:
-- https://git-personal-projects.rj.r.appspot.com/
+- https://contador-de-macronutrientes-dot-git-personal-projects.rj.r.appspot.com/
 
 ## Execução local:
 ```

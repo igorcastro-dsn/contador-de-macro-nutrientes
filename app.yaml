@@ -1,5 +1,5 @@
 runtime: nodejs10
-service: default
+service: contador-de-macronutrientes
 handlers:
     # Serve all static files with urls ending with a file extension
     - url: /(.*\..+)$
