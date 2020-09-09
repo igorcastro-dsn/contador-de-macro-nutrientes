@@ -21,3 +21,4 @@ npm start
 ## Pendências:
 - Criar página incial com instruções básicas de utilização da calculadora
 - Criar modo avançado, no qual é possível customizar a quantidade em gramas de cada macro por peso corporal (atualmente a quantidade é fixa)
+- Validações no form
