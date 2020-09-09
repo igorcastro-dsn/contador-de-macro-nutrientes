@@ -15,5 +15,9 @@ Projeto para estudo de criação de _web components_ utilizando lit-element e bu
 git clone https://github.com/igorcastro-dsn/contador-de-macro-nutrientes.git
 cd contador-de-macro-nutrientes
 npm install
-start
+npm start
 ```
+
+## Pendências:
+- Criar página incial com instruções básicas de utilização da calculadora
+- Criar modo avançado, no qual é possível customizar a quantidade em gramas de cada macro por peso corporal (atualmente a quantidade é fixa)

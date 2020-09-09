@@ -16,7 +16,8 @@ export class App extends LitElement {
     }
 
     static get properties() {
-        return {}
+        return {
+        }
     }
 
     constructor() {

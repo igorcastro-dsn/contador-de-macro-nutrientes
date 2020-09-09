@@ -1,9 +1,9 @@
 {
-  "name": "lit-element-starter-js",
+  "name": "contador-de-macro-nutrientes",
   "version": "0.0.1",
-  "description": "A simple web component",
-  "main": "my-element.js",
-  "module": "my-element.js",
+  "description": "Projeto de exemplo com utilizaçao do lit-element + bulma css",
+  "main": "app.js",
+  "module": "app.js",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
@@ -13,7 +13,8 @@
   "keywords": [
     "web-components",
     "lit-element",
-    "javascript"
+    "javascript",
+    "bulma"
   ],
   "dependencies": {
     "@rollup/plugin-node-resolve": "^9.0.0",
@@ -26,7 +27,6 @@
     "serve": "^11.3.2"
   },
   "devDependencies": {
-    "es-dev-server": "^1.46.1",
     "eslint": "^6.8.0",
     "lit-analyzer": "^1.1.9",
     "prettier": "^2.0.4"
